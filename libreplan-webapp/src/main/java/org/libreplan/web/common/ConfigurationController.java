@@ -315,7 +315,9 @@ public class ConfigurationController extends GenericForwardComposer {
         try {
             source.afterPropertiesSet();
         } catch (Exception e) {
-            e.printStackTrace();
+             LOG.warn(e);
+            messages.showMessage(Level.ERROR,"Issue while connecting to LDAP");
+
         }
 
         LdapTemplate template = new LdapTemplate(source);
