@@ -504,7 +504,7 @@ public class OrderImporterMPXJ implements IOrderImporter {
         }
 
         orderDAO.save(order);
-
+        taskGroup.sanitizeFields();
         taskDAO.save(taskGroup);
 
         for (TaskSource taskSource : taskSources) {
